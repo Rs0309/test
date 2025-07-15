@@ -23,7 +23,8 @@ if (!$data || !isset($data['name'], $data['email'], $data['phone'], $data['addre
 }
 
 // Database connection
-$conn = new mysqli("localhost", "u141889226_suchalis", "5206@Idea", "u141889226_suchalis");
+$conn = new mysqli("your-mysql-host.com", "db_username", "db_password", "db_name");
+
 if ($conn->connect_error) {
     http_response_code(500);
     echo json_encode(["status" => "error", "message" => "Database connection failed"]);
