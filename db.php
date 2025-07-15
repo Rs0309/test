@@ -1,13 +1,15 @@
 <?php
-$conn = new mysqli("your-mysql-host.com", "db_username", "db_password", "db_name");
+$conn = new mysqli(
+    "sql12.freesqldatabase.com", // Host
+    "sql12790205",               // Username
+    "1QEMU1QKeP",                // Password
+    "sql12790205",               // Database name
+    3306                         // Port number (optional but good to specify)
+);
 
-// Check connection
 if ($conn->connect_error) {
     http_response_code(500);
-    echo json_encode([
-        "status" => "error",
-        "message" => "Database connection failed: " . $conn->connect_error
-    ]);
+    echo json_encode(["status" => "error", "message" => "Database connection failed: " . $conn->connect_error]);
     exit();
 }
 ?>
