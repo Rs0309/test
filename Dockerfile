@@ -1,14 +1,10 @@
 FROM php:8.2-apache
 
-# Enable Apache rewrite module
+# Enable mod_rewrite if needed
 RUN a2enmod rewrite
 
-# Install mysqli for MySQL connection
-RUN docker-php-ext-install mysqli
-
-# Copy all files into Apache root
+# Copy your PHP files to Apache's web root
 COPY . /var/www/html/
 
-WORKDIR /var/www/html/
-
-EXPOSE 80
+# Set proper permissions (optional but good practice)
+RUN chown -R www-data:www-data /var/www/html
